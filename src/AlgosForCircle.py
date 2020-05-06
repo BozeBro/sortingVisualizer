@@ -38,27 +38,6 @@ def selectionSort(array):
         # upgrade i so the starting point is moved
     yield 0, 0, 1
 
-
-def insertionSort(array): #TODO Fix Insertion Sort
-    """Fix This"""
-    for i in range(1, len(array)):
-        point1 = array[i]
-        j = i - 1
-        while j >= 0 and point1 < array[j]:
-            # Individually moving each piece
-            array[j + 1] = array[j]
-            yield i, j, 0
-            j -= 1
-        array[j + 1] = point1
-        yield i, j, 0
-
-
-def wrapper(array):
-    """Wrapper for quicksort so that black marker can disappear"""
-    yield from quickSort(array, 0, len(array) - 1)
-    yield 0, 0, 1
-
-
 def quickSort(array, bot, top):
     """This will do the quickSort sort"""
     if bot < top:
@@ -91,59 +70,4 @@ def quickSort(array, bot, top):
         yield from quickSort(array, pi + 1, top)
         if bot == 0 and top == len(array)-1:
             yield 0, 0, 1
-
-'''Mergesort2 and merge2 are borrowed functions from https://github.com/nrsyed/sorts/blob/master/python/sorts.py#L67'''
-
-
-def mergesort2(A, start, end):
-    # This function does not use splices but maintains original list
-
-    if end <= start:
-        return
-
-    mid = start + ((end - start + 1) // 2) - 1
-    yield from mergesort2(A, start, mid)
-    yield from mergesort2(A, mid + 1, end)
-    yield from merge2(A, start, mid, end)
-    yield 0, 0, 1
-
-
-def merge2(A, start, mid, end):
-    merged = []
-    leftIdx = start
-    rightIdx = mid + 1
-
-    while leftIdx <= mid and rightIdx <= end:
-        if A[leftIdx] < A[rightIdx]:
-            merged.append(A[leftIdx])
-            leftIdx += 1
-        else:
-            merged.append(A[rightIdx])
-            rightIdx += 1
-
-    while leftIdx <= mid:
-        merged.append(A[leftIdx])
-        leftIdx += 1
-
-    while rightIdx <= end:
-        merged.append(A[rightIdx])
-        rightIdx += 1
-
-    for i, sorted_val in enumerate(merged):
-        A[start + i] = sorted_val
-        yield start + 1, i, 0
-
-list1 = [x for x in range(0, 50)]
-shuffle(list1)
-
-def insertion(array):
-    for i in range(1, len(array)):
-        value = array[i]
-        j = i
-        while j > 0 and array[j - 1] > value:
-            array[j] = array[j - 1]
-            yield j, j - 1, 0
-            j -= 1
-        array[j] = value
-        yield j, i, 0
 
