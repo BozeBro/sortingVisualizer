@@ -68,6 +68,7 @@ number = 300
 to_sort = [1 for m in range(number - 1)]
 # to_sort makes wedges with equal length
 
+plt.style.use('dark_background')
 fig, ax = plt.subplots()
 theme = plt.get_cmap('hsv')
 
