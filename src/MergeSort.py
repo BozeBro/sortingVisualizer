@@ -3,7 +3,7 @@ from matplotlib.animation import FuncAnimation
 from random import shuffle
 
 
-def mergesort2(array, start, end):
+def mergesort(array, start, end):
     if end <= start:
         return
 
@@ -15,7 +15,7 @@ def mergesort2(array, start, end):
         yield 0, 0, 1
 
 
-def merge2(array, start, mid, end):
+def merge(array, start, mid, end):
     merged, left, right = [], start, mid + 1
 
     while left <= mid and right <= end:
@@ -83,7 +83,7 @@ storage['store2'], storage['store3'] = None, None, \
 
 # Storage to remember to switch off black marker
 ax.axis('equal')
-ani = FuncAnimation(fig, update, frames=mergesort2(length, 0, len(length) - 1), repeat=False, interval=1,
+ani = FuncAnimation(fig, update, frames=mergesort(length, 0, len(length) - 1), repeat=False, interval=1,
                     blit=False)
 
 plt.show()
