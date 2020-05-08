@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
-from AlgosForCircle import *
+from AlgosForCircle import bubbleSort
 from random import shuffle
 
 
@@ -46,7 +46,7 @@ wedges, texts = ax.pie(to_sort, radius=4, startangle=90., shadow=True,
 ax.axis('equal')
 store = [None, None]
 # Storage to remember to switch off black marker
-ani = FuncAnimation(fig, update, frames=insertion(length), repeat=False, interval=1,
+ani = FuncAnimation(fig, update, frames=bubbleSort(length), repeat=False, interval=1,
                     blit=False)
 
 plt.show()
