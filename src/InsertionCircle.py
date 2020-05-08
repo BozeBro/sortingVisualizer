@@ -16,9 +16,9 @@ def insertionSort(array):
 def update(array):
     """The function that does the animating"""
     i, j, c = array
-    if store[0] != None:
-        wedges[store[0]].set_color(store[1])
-    store[0], store[1] = i, storage[j]
+    if storage['store0'] != None:
+        wedges[storage['store0']].set_color(storage['store1'])
+    storage['store0'], storage['store1'] = i, storage[j]
     if c == 0:
         wedges[i].set_color('black')
     elif c == 1:
@@ -41,8 +41,8 @@ wedges, texts = ax.pie(to_sort, radius=4, startangle=90., shadow=True,
                        wedgeprops={'linewidth': False,
                                    'linestyle': 'solid'},
                        colors=test)
-store = [None, None]
 storage = {n: c for n, c in zip(length, test)}
+storage['store0'], storage['store1'] = None, None
 ax.axis('equal')
 # Storage to remember to switch off black marker
 ani = FuncAnimation(fig, update, frames=insertionSort(length), repeat=False, interval=10,
