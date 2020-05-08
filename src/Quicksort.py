@@ -1,4 +1,3 @@
-import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 from random import shuffle
@@ -37,8 +36,6 @@ def quickSort(array, bot, top):
         if bot == 0 and top == len(array) - 1:
             yield 0, 0, 1
 
-
-# TODO Fix Insertion Sort, make new files for the unique sorting algorithms, merge, quick, insertion, etc.
 def update(array):
     """The function that does the animating"""
     if store[0] != None:
