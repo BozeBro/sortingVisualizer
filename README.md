@@ -5,3 +5,5 @@ The algorithms used as of right now are:
 Selection Sort
 Bubble Sort
 Quick Sort
+Merge Sort
+Insertion Sort
