@@ -11,8 +11,6 @@ def update(array):
         wedges[store[0]].set_color(store[1])
 
     i, j, c = array
-    # Option to have the circle turn green when completed. Only available in bubble sort atm.
-    # Uncomment the yield in AlgosForCircle in the bubbleSort Function
     mvp = wedges[i].get_facecolor()
     wedges[i].set_color(wedges[j].get_facecolor())
 
@@ -22,8 +20,6 @@ def update(array):
     elif c == 1:
         wedges[j].set_color(mvp)
     store[0], store[1] = j, mvp
-    # return wedges
-    # return is for blitting purposes. However, the marker gets turned off.
 
 
 number = 50
