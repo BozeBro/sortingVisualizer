@@ -16,7 +16,6 @@ def selectionSort(array):
             yield check, check, 0
             if array[small] > array[check]:
                 small = check
-            #yield check, small, 0
         # At the end of the loop, we will have the smallest and we need to switch
         array[i], array[small] = array[small], array[i]
 
@@ -32,8 +31,6 @@ def update(array):
         wedges[store[0]].set_color(store[1])
 
     i, j, c = array
-    # Option to have the circle turn green when completed. Only available in bubble sort atm.
-    # Uncomment the yield in AlgosForCircle in the bubbleSort Function
     mvp = wedges[i].get_facecolor()
     wedges[i].set_color(wedges[j].get_facecolor())
 
