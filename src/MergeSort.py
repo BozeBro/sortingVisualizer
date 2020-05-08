@@ -45,13 +45,13 @@ def merge2(A, start, mid, end):
 
 def update(array):
     i, j, c = array
-    if store[0] != None:
-        wedges[store[0]].set_color(store[1])
+    if storage['store0'] != None:
+        wedges[storage['store0']].set_color(storage['store1'])
     if c == 0:
         wedges[i].set_color('black')
     elif c == 1:
         return
-    store[0], store[1] = i, storage[j]
+    storage['store0'], storage['store1'] = i, storage[j]
 
 
 number = 100
@@ -70,8 +70,9 @@ wedges, texts = ax.pie(to_sort, radius=4, startangle=90., shadow=True,
                        wedgeprops={'linewidth': False,
                                    'linestyle': 'solid'},
                        colors=test)
-store = [None, None]
+
 storage = {n: c for n, c in zip(length, test)}
+storage['store0'], storage['store1'] = None, None
 # Storage to remember to switch off black marker
 ax.axis('equal')
 ani = FuncAnimation(fig, update, frames=mergesort2(length, 0, len(length) - 1), repeat=False, interval=1,
