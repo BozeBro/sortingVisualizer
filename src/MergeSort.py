@@ -42,7 +42,6 @@ def merge(array, start, mid, end):
         array[start + i] = sorted_val
         yield start + i, sorted_val, 0
 
-
 def update(container):
     i, j, c = container
     if c == 2:
@@ -50,14 +49,12 @@ def update(container):
             wedges[storage['store2']].set_color(storage['store3'])
         wedges[i].set_color('black')
         storage['store2'], storage['store3'] = i, storage[j]
-        return
-    if storage['store0'] != None:
-        wedges[storage['store0']].set_color(storage['store1'])
-    if c == 0:
-        wedges[i].set_color('black')
-    elif c == 1:
-        return
-    storage['store0'], storage['store1'] = i, storage[j]
+    else:
+        if storage['store0'] != None:
+            wedges[storage['store0']].set_color(storage['store1'])
+        if c == 0:
+            wedges[i].set_color('black')
+            storage['store0'], storage['store1'] = i, storage[j]
 
 
 number = 100
