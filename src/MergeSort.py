@@ -8,9 +8,9 @@ def mergesort(array, start, end):
         return
 
     mid = start + ((end - start + 1) // 2) - 1
-    yield from mergesort2(array, start, mid)
-    yield from mergesort2(array, mid + 1, end)
-    yield from merge2(array, start, mid, end)
+    yield from mergesort(array, start, mid)
+    yield from mergesort(array, mid + 1, end)
+    yield from merge(array, start, mid, end)
     if start == 0 and end == len(array) - 1:
         yield 0, 0, 1
 
