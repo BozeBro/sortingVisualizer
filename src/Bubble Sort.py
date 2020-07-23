@@ -1,6 +1,6 @@
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
-from AlgosForCircle import bubbleSort
+from BubbleSortAlgorithm import bubbleSort
 from random import shuffle
 
 
