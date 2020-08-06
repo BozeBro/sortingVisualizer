@@ -4,7 +4,6 @@ from BubbleSortAlgorithm import bubbleSort
 from random import shuffle
 
 
-# TODO Fix Insertion Sort, make new files for the unique sorting algorithms, merge, quick, insertion, etc.
 def update(array):
     """The function that does the animating"""
     if store[0] != None:
