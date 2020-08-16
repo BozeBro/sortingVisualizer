@@ -8,4 +8,4 @@ The algorithms used as of right now are:
 # Quick Sort
 # Merge Sort
 # Insertion Sort
-# 
+
