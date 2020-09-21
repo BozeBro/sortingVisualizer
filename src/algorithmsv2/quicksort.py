@@ -1,14 +1,11 @@
-from random import randint
 def quick_sort(array, bot=None, top=None):
     """This will do the quickSort sort"""
     if bot is None and top is None:
         bot = 0
         top = len(array) - 1
     if bot < top:
-        index_p = randint(bot, top)
+        index_p = top
         pivot = array[index_p]
-        array[index_p], array[top] = array[top], array[index_p]
-        yield index_p, top
         i = bot
         i2 = top - 1
         while True:

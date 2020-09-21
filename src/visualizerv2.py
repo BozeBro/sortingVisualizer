@@ -24,7 +24,7 @@ def update(swapped):
     wedges[j].set_color(tmpi)
 
 number = 200
-wedge_length = [1 for i in range(number)]
+wedge_length = [1 for _ in range(number)]
 to_sort = [i+1 for i in range(number)]
 shuffle(to_sort)
 
