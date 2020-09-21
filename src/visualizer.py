@@ -2,6 +2,7 @@ from matplotlib import pyplot as plt
 from matplotlib import animation
 from algoBars import *
 from random import shuffle
+from circleVisualizer import update as up
 
 iteration = [0]
 
@@ -22,9 +23,18 @@ def animate(array, bar_rects, iteration):
         v.set_height(array[i])
     # return
 
+def update(*values):
+    i, j = values
+    i_height = bar_rects[i].get_height()
+    #iteration[0] += 1
+    #text.set_text(f'# of function calls: {iteration[0]}')
+    bar_rects[i].set_height(bar_rects[j].get_height())
+    bar_rects[j].set_height(i_height)
+
 
 if __name__ == '__main__':
-    number = int(input("How big is the array to be sorted? "))
+    # number = int(input("How big is the array to be sorted? "))
+    number = 20
     options = "What method would you like to use? " \
               "\n quicksort (q)" \
               "\n bubblesort (b)" \
@@ -32,8 +42,9 @@ if __name__ == '__main__':
               "\n mergesort (alternative) (m2)" \
               "\n selectionsort (s)" \
               "\n insertsort (i)"
-    sort = input(options)
-    unsorted = [x for x in range(1, number + 1)]
+    # sort = input(options)
+    sort = "b"
+    unsorted = [x for x in range(1, number+1) ]
     shuffle(unsorted)
 
     if sort == 'q':
@@ -78,8 +89,13 @@ if __name__ == '__main__':
     text.set_text(f'# numbers of operations: {iteration[0]}')
     bar_rects = plt.bar(range(len(unsorted)), unsorted,
                         width=1, align='edge', color='cyan', edgecolor='b')
-    ani = animation.FuncAnimation(fig, animate, fargs=(bar_rects, iteration),
+    ani = animation.FuncAnimation(fig, update,
                                   interval=100, frames=algos, blit=False, repeat=False)
+    #ani = animation.FuncAnimation(fig, update, fargs=(bar_rects, iteration),
+    #                              interval=100, frames=algos, blit=False, repeat=False)
+
+
+
     # f = r'C:\Users\benoz\Desktop\Sorting_videos\quicksort_neg.gif'
     # writervideo = animation.PillowWriter(fps=120)
     # ani.save(f, writer=writervideo)

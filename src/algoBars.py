@@ -33,16 +33,15 @@ def quickSort(array, bot, top):
 
 
 def bubbleSort(array):
-    is_sorted = True
-    while is_sorted:
-        count = 1
-        is_sorted = False
-        for i in range(len(array) - count):
+    count = 1
+    while count != (length:=len(array)):
+        for i in range(length - count):
             if array[i] > array[i + 1]:
-                is_sorted = True
+                yield i, i + 1, 0
                 array[i], array[i + 1] = array[i + 1], array[i]
-                yield array
+                #yield array, i, i + 1
         count += 1
+    yield i, i + 1, 1
 
 
 def merge(lside, rside, array, bot, original):
