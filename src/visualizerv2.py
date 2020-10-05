@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 from algorithmsv2 import *
 
-function = quick_sort
+function = selection_sort
 
 def sortalgo(f, function=function):
     def wrapper(*args):
@@ -23,7 +23,7 @@ def update(swapped):
     wedges[i].set_color(tmpj)
     wedges[j].set_color(tmpi)
 
-number = 200
+number = 500
 wedge_length = [1 for _ in range(number)]
 to_sort = [i+1 for i in range(number)]
 shuffle(to_sort)
@@ -38,6 +38,6 @@ wedges, texts = ax.pie(wedge_length, radius=4, startangle=90.,
                        colors=colors)
 ax.axis('equal')
 
-ani = FuncAnimation(fig, update, frames=function(to_sort), repeat=False, interval=10,
+ani = FuncAnimation(fig, update, frames=function(to_sort), repeat=False, interval=1,
                     blit=False)
 plt.show()

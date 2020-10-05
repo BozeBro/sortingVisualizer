@@ -1,7 +1,7 @@
 from random import shuffle
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
-from algorithmsv1.InsertionCircle import insertionSort
+from algorithmsv1.selectionCircle import selectionSort
 
 def update(to_swap):
     """The function that does the animating"""
