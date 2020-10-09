@@ -1,3 +1,13 @@
+# How to Run it?
+Must have matplotlib installed
+download the code.
+pip install -r requirements.txt
+For rectangle visualization
+python3 "Path/to/visualizer.py"
+For color wheel visualizer
+python3 "Path/to/visualizerv2.py"
+You will have to manually edit the variable called function to change the sorting algorithm/
+
 # Python Sorting Algorithm Visualizer
 
 This visualizes sorting algorithms using either a color wheel or rectangles.
