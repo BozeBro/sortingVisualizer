@@ -1,75 +1,42 @@
 from matplotlib import pyplot as plt
 from matplotlib import animation
-from algoBars import *
 from random import shuffle
-from circleVisualizer import update as up
+from algorithmsv2 import *
 
-iteration = [0]
+function = merge_sort
 
+def sortalgo(f, function=function):
+    def wrapper(*args):
+        if function.__name__ == 'merge_sort':
+            return merge_update(*args)
+        return f(*args)
+    return wrapper
 
-# return bar_rects
-def animate(array, bar_rects, iteration):
-    '''i, j, c = array
-    iteration[0] += 1
-    text.set_text(f'# of function calls: {iteration[0]}')
-    h1 = bar_rects[j].get_height()
-    bar_rects[j].set_height(bar_rects[i].get_height())
-    bar_rects[i].set_height(h1)'''
-    iteration[0] += 1
-    text.set_text(f'# of function calls: {iteration[0]}')
-    for i, v in enumerate(bar_rects):
-        if i == len(array):
-            return
-        v.set_height(array[i])
-    # return
+def merge_update(swapped):
+    i, j = swapped
+    bar_rects[i].set_height(j)
 
-def update(*values):
-    i, j = values
-    i_height = bar_rects[i].get_height()
-    #iteration[0] += 1
-    #text.set_text(f'# of function calls: {iteration[0]}')
-    bar_rects[i].set_height(bar_rects[j].get_height())
-    bar_rects[j].set_height(i_height)
+@sortalgo
+def update(swapped):
+    i, j = 0, 1
+    while j < len(swapped):
+        x, y = swapped[i], swapped[j]
+        tmpx, tmpy = bar_rects[x].get_height(), bar_rects[y].get_height()
+        bar_rects[x].set_height(tmpy)
+        bar_rects[y].set_height(tmpx)
+        i += 1
+        j += 1
 
 
 if __name__ == '__main__':
-    # number = int(input("How big is the array to be sorted? "))
-    number = 20
-    options = "What method would you like to use? " \
-              "\n quicksort (q)" \
-              "\n bubblesort (b)" \
-              "\n mergesort (m1)" \
-              "\n mergesort (alternative) (m2)" \
-              "\n selectionsort (s)" \
-              "\n insertsort (i)"
-    # sort = input(options)
-    sort = "b"
+    number = 200
+
     unsorted = [x for x in range(1, number+1) ]
     shuffle(unsorted)
 
-    if sort == 'q':
-        title = 'Quicksort'
-        algos = quickSort(unsorted, 0, len(unsorted) - 1)
-    elif sort == 'b':
-        title = 'Bubblesort'
-        algos = bubbleSort(unsorted)
-    elif sort == 'm1':
-        title = 'Mergesort 1'
-        algos = mergeSort(unsorted, unsorted)
-    elif sort == 'm2':
-        title = 'Mergesort 2'
-        algos = mergesort2(unsorted, 0, len(unsorted) - 1)
-    elif sort == 's':
-        title = 'Selectionsort'
-        algos = selectionSort(unsorted)
-    elif sort == 'i':
-        title = 'Insertionsort'
-        algos = selectionSort(unsorted)
-    else:
-        raise NameError
     plt.style.use('dark_background')
     fig, ax = plt.subplots()
-    plt.title(title)
+    plt.title(function.__name__)
 
     ax.spines['right'].set_visible(False)
     ax.spines['top'].set_visible(False)
@@ -84,19 +51,11 @@ if __name__ == '__main__':
         labelbottom=False  # x axis label
     )
 
-    text = ax.text(0.009, 0.95, "", transform=ax.transAxes)
-    interval = [0]
-    text.set_text(f'# numbers of operations: {iteration[0]}')
     bar_rects = plt.bar(range(len(unsorted)), unsorted,
-                        width=1, align='edge', color='cyan', edgecolor='b')
-    ani = animation.FuncAnimation(fig, update,
-                                  interval=100, frames=algos, blit=False, repeat=False)
-    #ani = animation.FuncAnimation(fig, update, fargs=(bar_rects, iteration),
-    #                              interval=100, frames=algos, blit=False, repeat=False)
-
-
-
-    # f = r'C:\Users\benoz\Desktop\Sorting_videos\quicksort_neg.gif'
-    # writervideo = animation.PillowWriter(fps=120)
-    # ani.save(f, writer=writervideo)
+                        width=1, align='edge', color='white')
+    ani = animation.FuncAnimation(
+        fig, update,
+        interval=1, 
+        frames=function(unsorted), 
+        blit=False, repeat=False)
 plt.show()

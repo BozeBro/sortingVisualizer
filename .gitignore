@@ -2,3 +2,6 @@ __pycache__/
 .vscode
 .idea
 venv
+circleVisualizer.py
+test_algorithms.py
+algorithmsv1

@@ -32,4 +32,5 @@ def merge(array, start, mid, end):
 
     for i, (ind, val) in enumerate(merged):
         array[start + i] = val
-        yield start + i, val / len(array)
+        # yield start + i, val / len(array)
+        yield start + i, val
