@@ -2,9 +2,9 @@
 Must have matplotlib installed
 download the code.
 cd into sortginVisualizer directory
-`pip install -r requirements.txt`
+`pip install -r requirements.txt` <br>
 For rectangle visualization
-python3 "src/rectvisualizer.py"
+`python3 "src/rectvisualizer.py"` <br>
 For color wheel visualizer
 python3 "src/circlevisualizerv.py"
 The program has 3 command line arguments, -f -n -i (--function --number --interval)
