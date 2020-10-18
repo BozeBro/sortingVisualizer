@@ -2,7 +2,7 @@
 Must have matplotlib installed
 download the code.
 cd into sortginVisualizer directory
-pip install -r requirements.txt
+`pip install -r requirements.txt`
 For rectangle visualization
 python3 "src/rectvisualizer.py"
 For color wheel visualizer
