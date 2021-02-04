@@ -1,6 +1,7 @@
-# How to Run it?
-download the code.  <br>
-cd into sortginVisualizer directory <br>
+# Basic Usage?
+download the code.
+``` git clone https://github.com/BozeBro/sortingVisualizer.git ``` <br>
+cd sortginVisualizer directory <br>
 `pip install -r requirements.txt` <br>
 For rectangle visualization <br>
 `python3 "src/rectvisualizer.py"` <br>
