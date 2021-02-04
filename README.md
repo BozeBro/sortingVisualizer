@@ -1,5 +1,5 @@
 # Basic Usage?
-download the code.
+download the code. <br>
 ``` git clone https://github.com/BozeBro/sortingVisualizer.git ``` <br>
 cd sortginVisualizer directory <br>
 `pip install -r requirements.txt` <br>
